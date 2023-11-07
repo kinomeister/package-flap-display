@@ -3,7 +3,7 @@
 # Rename this file to `service`, so info-beamer automatically starts it
 # on your device.
 
-import datetime
+import time
 from ibquery import InfoBeamerQuery
 
 def main():
@@ -32,7 +32,7 @@ def main():
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("KD9SBK\n" % datetime.datetime.now())
+        con.write("KD9SBK\n" % time.time.now())
         con.close()
 
         time.sleep(1)
