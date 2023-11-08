@@ -7,11 +7,15 @@ def main():
     while 1:
         ib = InfoBeamerQuery("127.0.0.1")
 
+# Get the current time
+    current_time = time.strftime("%H:%M:%S", time.localtime())
+
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("KD9SBK IS OFF THE AIR\n%d\n" % time.time())
-        con.close()
+#        con.write("KD9SBK IS OFF THE AIR\n%d\n" % time.time())
+     con.write("KD9SBK IS OFF THE AIR\n%d\n " % current_time + "\n")
+    con.close()
 
         time.sleep(1)
 
