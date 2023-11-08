@@ -14,7 +14,8 @@ def main():
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
 #        con.write("KD9SBK IS OFF THE AIR\n%d\n" % time.time())
-     con.write("KD9SBK IS OFF THE AIR\n%d\n " % current_time + "\n")
+  #   con.write("KD9SBK IS OFF THE AIR\n%d\n " % current_time + "\n")
+con.write(current_time + "\n")
     con.close()
 
         time.sleep(1)
