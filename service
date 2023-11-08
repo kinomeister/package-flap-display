@@ -10,7 +10,7 @@ def main():
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("KD9SBK IS OFF THE AIR\n%d\n" % datetime.datetime())
+        con.write("KD9SBK IS OFF THE AIR\n%d\n" % datetime.datetime.now())
         con.close()
 
         time.sleep(1)
