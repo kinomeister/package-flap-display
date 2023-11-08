@@ -15,7 +15,7 @@ def main():
         con = ib.node("display/atomic").io(raw=True)
 #        con.write("KD9SBK IS OFF THE AIR\n%d\n" % time.time())
   #   con.write("KD9SBK IS OFF THE AIR\n%d\n " % current_time + "\n")
-con.write(current_time + "\n")
+    con.write(current_time)
     con.close()
 
         time.sleep(1)
