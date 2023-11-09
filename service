@@ -5,7 +5,6 @@
 
 import time
 from ibquery import InfoBeamerQuery
-from datetime import datetime
 
 def main():
     while 1:
@@ -33,7 +32,7 @@ def main():
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("Hell1o\nWorld\n%d\n" % datetime.datetime())
+        con.write("Hello\nWorld\n%d\n" % time.time())
         con.close()
 
         time.sleep(1)
