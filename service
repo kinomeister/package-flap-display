@@ -33,7 +33,7 @@ def main():
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("Hell1o\nWorld\n%d\n" % datetime.now())
+        con.write("Hell1o\nWorld\n%d\n" % datetime.datetime())
         con.close()
 
         time.sleep(1)
