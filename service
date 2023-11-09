@@ -4,7 +4,17 @@
 # on your device.
 
 import time
+import sys
+import pytz
+from datetime import datetime, timedelta
+from calendar import timegm
+from hosted import config, node
 from ibquery import InfoBeamerQuery
+
+def current_time():
+    now = datetime.utcnow()
+    timestamp = timegm(now.timetuple()) + now.microsecond / 1000000.
+    return now, timestamp
 
 def main():
     while 1:
