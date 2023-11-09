@@ -24,8 +24,8 @@ def main():
         # con.write("Hello\nWorld\n%d\n" % time.time())
         # con.write("Hello\nWorld\n%s\n" % (randStr(N=6)))
        # con.write("%s\n\n%s\n" % (randStr(N=16), randStr(N=16)))
-         con.write("time:\n" % datetime.now().strftime("%H:%M:%S"))
-        # con.write("Hello\nWorld\n%s\n" % datetime.now().strftime("%H:%M:%S"))
+        # con.write("time:\n" % datetime.now().strftime("%H:%M:%S"))
+         con.write("Hello\nWorld\n%s\n" % datetime.now().strftime("%H:%M:%S"))
 
         con.close()
         time.sleep(6)
