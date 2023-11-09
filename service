@@ -9,33 +9,14 @@ from datetime import datetime
 import random
 import string
 
+time = datetime.now().strftime("%H:%M:%S")
 
 def randStr(chars=string.ascii_uppercase + string.digits, N=10):
     return ''.join(random.choice(chars) for _ in range(N))
 
-
 def main():
     while 1:
         ib = InfoBeamerQuery("127.0.0.1")
-
-        # connect to info-beamer. The node name is 'display' (See node.lua).
-        # There are two modes:
-        #
-        #  * Endlessly adding new lines to the output. Each line you send
-        #    will be added below the current line, wrapping around if it
-        #    reaches to bottom row.
-        #
-        #  * Atomic mode: You connect and send multiple lines. Once you
-        #    disconnect, the display will be cleared and all lines will
-        #    be added at once. This basically replaces the current output
-        #    with all lines sent. The flap display will only update
-        #    characters that changed.
-        #
-        # The mode is determined by how you connect to the info-beamer
-        # process. If you connect and attach to 'display', you're in
-        # endless mode and all lines sent will be immediately added.
-        # If you're connecting and attach to 'display/atomic', you're
-        # in atomic mode.
 
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
@@ -43,13 +24,11 @@ def main():
         # con.write("Hello\nWorld\n%d\n" % time.time())
         # con.write("Hello\nWorld\n%s\n" % (randStr(N=6)))
        # con.write("%s\n\n%s\n" % (randStr(N=16), randStr(N=16)))
-         time = datetime.now().strftime("%H:%M:%S")
          con.write("time:\n" % datetime.now().strftime("%H:%M:%S"))
         # con.write("Hello\nWorld\n%s\n" % datetime.now().strftime("%H:%M:%S"))
 
         con.close()
         time.sleep(6)
-
 
 if __name__ == "__main__":
     main()
