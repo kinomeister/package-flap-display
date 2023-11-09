@@ -10,7 +10,13 @@ from datetime import datetime, timedelta
 def main():
     while 1:
         ib = InfoBeamerQuery("127.0.0.1")
-now = datetime.utcnow()
+def current_time():
+    timezone = pytz.timezone("Europe/Berlin")
+    now = datetime.utcnow()
+    now = now.replace(tzinfo=pytz.utc)
+    now = now.astimezone(timezone)
+    now = now.replace(tzinfo=None)
+    return now
         # connect to info-beamer. The node name is 'display' (See node.lua).
         # There are two modes:
         #
