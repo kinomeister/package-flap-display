@@ -4,17 +4,7 @@
 # on your device.
 
 import time
-import sys
-import pytz
-from datetime import datetime, timedelta
-from calendar import timegm
-from hosted import config, node
 from ibquery import InfoBeamerQuery
-
-def current_time():
-    now = datetime.utcnow()
-    timestamp = timegm(now.timetuple()) + now.microsecond / 1000000.
-    return now, timestamp
 
 def main():
     while 1:
@@ -42,7 +32,7 @@ def main():
         # Example for atommic mode: Set 3 lines, the last one being
         # the current unix timestamp.
         con = ib.node("display/atomic").io(raw=True)
-        con.write("Hello\nWorld\n%d\n" % now())
+        con.write("Hello\nWorld\n%d\n" % time.time())
         con.close()
 
         time.sleep(1)
